@@ -19,10 +19,11 @@ public class Todo {
     @NotBlank
     private String descricao;
     private int prioridade;
-    @NotBlank
     private boolean concluida;
 
-    
+    public Todo(){
+    }
+
     public Todo(String nome, String descricao, int prioridade, boolean concluida) {
         this.nome = nome;
         this.descricao = descricao;

@@ -94,6 +94,12 @@ label {
     align-items: flex-end; /* Alinha o fundo dos campos */
 }
 
+.containerlista{
+    padding-left: 3%;
+    margin-right: 9%;
+    border: none;
+}
+
 .field {
     display: flex;
     flex-direction: column;
