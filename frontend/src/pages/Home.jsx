@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import './../styles/Home.css'
 import logo from './../assets/log.png'
+
+const API_URL = ""
 
 function Home(){
     return(
