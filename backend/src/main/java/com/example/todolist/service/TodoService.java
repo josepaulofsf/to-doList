@@ -15,24 +15,24 @@ public class TodoService{
         this.todoRepository = todoRepository;
     }
 
-    public List<Todo> create(Todo todo){
-        todoRepository.save(todo);
-        return this.list();
+    public Todo create(Todo todo){
+        return todoRepository.save(todo);
     }
 
-    public List<Todo> update(Todo todo){
-        todoRepository.save(todo);
-        return this.list();
+    public Todo update(Todo todo){
+        return todoRepository.save(todo);
     }
 
-    public List<Todo> remove(Long id){
+    public void remove(Long id){
         todoRepository.deleteById(id);
-        return this.list();
     }
 
-    public List<Todo> list(){
-        Sort formato = Sort.sort(Todo.class).by(Todo::getPrioridade).descending();
-        return todoRepository.findAll(formato);
+    public List<Todo> list(String ordenarPor){
+        if ("prioridade".equalsIgnoreCase(ordenarPor)) {
+        return todoRepository.findAll(Sort.by(Sort.Direction.DESC, "prioridade"));
+        }
+        // Padrão: por ID crescente (ordem de inserção)
+        return todoRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
     }
 
 }

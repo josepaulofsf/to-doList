@@ -6,7 +6,9 @@ header{
     padding: 2vh 7vh;
     background-color:#224e82;
 }
-
+button{
+    cursor: pointer;
+}
 input{
     outline: none;
     border: 1px solid #ccc;
@@ -95,9 +97,75 @@ label {
 }
 
 .containerlista{
-    padding-left: 3%;
+    display: block;
+    gap: 15px;
+    padding-left: 0%;
     margin-right: 9%;
     border: none;
+}
+
+.ul-tarefas{
+    padding: 0;
+    display: grid;
+    grid-template-columns: 20px 2fr 2fr 2fr auto;
+    gap: 15px;
+    align-items: center;
+}
+
+.li-tarefas{
+    display: contents;
+}
+
+.li-cabecalho {
+  font-weight: bold;
+}
+.li-cabecalho span {
+  padding: 8px;
+  border-bottom: 2px solid #ccc;
+}
+.li-acoes{
+    padding: 8px;
+    border-bottom: 2px solid #ccc;
+}
+
+.span-pri{
+    margin-left: 40px;
+}
+.li-tarefas strong{
+    margin-left: 5px;
+}
+.col-acoes {
+  display: flex;
+  gap: 8px;
+  margin-left: 3px;
+}
+
+.button-trash{
+    height: 20px;
+    width: 25px;
+    background-color: rgb(199, 15, 15);
+    border: none;
+    border-radius: 5px;
+}
+.button-edit{
+    height: 20px;
+    width: 25px;
+    background-color:#224e82;
+    border: none;
+    border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .ul-tarefas {
+    grid-template-columns: 1fr;
+  }
+  .li-tarefas {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+  }
 }
 
 .field {
@@ -137,4 +205,33 @@ textarea {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.btn-cancelar {
+    margin-bottom: 20px;
+    padding: 8px 20px;
+    background-color:  rgb(199, 15, 15);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.select-ordem{
+    width: 200px;
+}
+
+.container-detalhes{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 9%;
+}
+.container-ordem{
+    display: block;
+}
+.container-classificacao{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
