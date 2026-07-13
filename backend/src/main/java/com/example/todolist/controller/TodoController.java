@@ -22,7 +22,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/todos")
-@CrossOrigin(origins = "http://localhost:5173/")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class TodoController {
     private final TodoRepository todoRepository;
     private TodoService todoService;

@@ -1,0 +1,43 @@
+
+services:
+  database:
+    image: postgres:16-alpine
+    container_name: todolist_db
+    environment:
+      POSTGRES_DB: todolist_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 864578
+    ports:
+      - "5444:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. BACKEND (Spring Boot)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: todolist_backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/todolist_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=864578
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  # 3. FRONTEND (React)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: todolist_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
